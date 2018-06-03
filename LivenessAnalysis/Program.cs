@@ -13,13 +13,12 @@ namespace LivenessAnalysis
         {
             // Input Format:
             // {SUCC \n USE \n DEF \n ISMOVE}* \n InitialLiveIn \n FinalLiveOut
-            //Console.WriteLine("Welcome to WTF live-in and live-out analyzer!\n");
-            //if (args.Length != 1)
-            //{
-            //    Console.WriteLine("Please drag the input file to this program!");
-            //}
-            //string[] rawFile = File.ReadAllLines(args[0]);
-            string[] rawFile = File.ReadAllLines("F:\\文档\\大学课程材料\\编译原理\\HW\\LivenessAnalysis\\LivenessAnalysis\\bin\\Debug\\input2.txt");
+            Console.WriteLine("Welcome to WTF live-in and live-out analyzer!\n");
+            if (args.Length != 1)
+            {
+                Console.WriteLine("Please drag the input file to this program!");
+            }
+            string[] rawFile = File.ReadAllLines(args[0]);
             if (rawFile.Length % 4 != 2)
             {
                 Console.WriteLine("Input Error");
@@ -77,7 +76,7 @@ namespace LivenessAnalysis
             }
             liveIn[0] = new HashSet<string>();
             if (initLiveIn.Length > 0)
-                liveIn[0].UnionWith(initLiveIn.Split(','));
+                liveOut[0].UnionWith(initLiveIn.Split(','));
             liveOut[instCount - 1] = new HashSet<string>();
             if (finalLiveOut.Length > 0)
                 liveIn[instCount - 1].UnionWith(finalLiveOut.Split(','));
